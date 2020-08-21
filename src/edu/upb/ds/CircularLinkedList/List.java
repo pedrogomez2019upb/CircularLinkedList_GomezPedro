@@ -95,14 +95,32 @@ public class List implements ListInterface,Iterable<ListNode>{
     @Override
     public boolean insert(ListNode node, Object object) {
         if(node.next==null){
-
+            add(object);
+        }
+        else
+        {
+            ListNode insert = new ListNode(object);
+            insert.next=node.next;
+            node.next=insert;
+            size++;
         }
         return true;
     }
 
     @Override
     public boolean insert(Object ob, Object object) {
-        return false;
+        ListNode trace=(ListNode) this.search(ob);
+        if(trace.next==null){
+            add(object);
+        }
+        else
+        {
+            ListNode insert = new ListNode(object);
+            insert.next=trace.next;
+            trace.next=insert;
+            size++;
+        }
+        return true;
     }
 
     @Override
