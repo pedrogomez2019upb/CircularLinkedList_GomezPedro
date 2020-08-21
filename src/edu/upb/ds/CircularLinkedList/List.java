@@ -77,7 +77,19 @@ public class List implements ListInterface,Iterable<ListNode>{
 
     @Override
     public boolean add(Object object) {
-        return false;
+        if(head==null){
+            head = new ListNode(object);
+            tail = head;
+        }
+        else
+        {
+            ListNode temporalNode=head;
+            ListNode newNode=new ListNode(object);
+            newNode.linkNext(temporalNode);
+            head=newNode;
+        }
+        size ++;
+        return true;
     }
 
     @Override

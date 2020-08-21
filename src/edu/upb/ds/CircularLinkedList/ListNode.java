@@ -7,6 +7,9 @@ public class ListNode {
     public ListNode() {
     }
 
+    public ListNode(Object object) {
+    }
+
     public void ListNode() {
         this.object = object;
         this.next = null;
