@@ -125,12 +125,40 @@ public class List implements ListInterface,Iterable<ListNode>{
 
     @Override
     public boolean insertHead(Object object) {
-        return false;
+        try {
+            if(isEmpty()) {
+                head=new ListNode(object);
+                tail=head;
+                size++;
+            }else {
+                ListNode node = new ListNode(object);
+                node.next=head;
+                head=node;
+                size++;
+            }
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
     }
 
     @Override
     public boolean insertTail(Object object) {
-        return false;
+        try {
+            if (isEmpty()) {
+                head = new ListNode(object);
+                tail = head;
+                size++;
+            } else {
+                tail.next = new ListNode(object);
+                tail.next=tail;
+                tail = tail.next;
+                size++;
+            }
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override
