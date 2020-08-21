@@ -1,8 +1,8 @@
 package edu.upb.ds.CircularLinkedList;
 
 public class ListNode {
-    private Object object;
-    private ListNode next;
+    public Object object;
+    public ListNode next;
 
     public ListNode() {
     }

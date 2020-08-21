@@ -46,7 +46,7 @@ public class List implements ListInterface,Iterable<ListNode>{
         int counter=0;
         ListNode temporalNode=tail;
         while (counter<0){
-            temporalNode=temporalNode.getNext();
+            temporalNode=temporalNode.next;
         }
         return temporalNode.getObject();
 
@@ -94,7 +94,10 @@ public class List implements ListInterface,Iterable<ListNode>{
 
     @Override
     public boolean insert(ListNode node, Object object) {
-        return false;
+        if(node.next==null){
+
+        }
+        return true;
     }
 
     @Override
