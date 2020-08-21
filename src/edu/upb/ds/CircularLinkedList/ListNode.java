@@ -8,7 +8,11 @@ public class ListNode {
 
     public void ListNode(){
         this.object=object;
-        this.next=next;
+        this.next=null;
+    }
+    public void ListNode(Object object){
+        this.object=object;
+        this.next=null;
     }
 
     public Object getObject() {
