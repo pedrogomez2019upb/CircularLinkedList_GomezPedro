@@ -2,10 +2,12 @@ package edu.upb.ds.CircularLinkedList;
 
 import java.util.Iterator;
 
-public class List implements ListInterface{
+public class List implements ListInterface,Iterable<ListNode>{
     private ListNode head;
     private ListNode tail;
+    private ListNode inode;
     private int size;
+
 
     public void List(){
         head =null;
@@ -47,19 +49,29 @@ public class List implements ListInterface{
             temporalNode=temporalNode.getNext();
         }
         return temporalNode.getObject();
+
     }
 
     @Override
     public Object get(ListNode node) {
         ListNode trace =head;
         while (!trace.equals(node)){
-            trace=trace.next;
+            trace=trace.getNext();
         }
         return trace;
     }
 
     @Override
     public Object search(Object object) {
+        Iterator<ListNode> i = this.iterator();
+        ListNode inode;
+        while (i.hasNext()) {
+
+            inode = i.next();
+            if (inode.getObject().toString().equals(object.toString())) {
+                return inode;
+            }
+        }
         return null;
     }
 
