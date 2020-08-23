@@ -3,16 +3,21 @@ package edu.upb.ds.CircularLinkedList;
 import java.util.Iterator;
 
 public class List implements ListInterface,Iterable<ListNode>{
-    private ListNode head;
-    private ListNode tail;
-    private ListNode inode;
-    private int size;
+    public ListNode head;
+    public ListNode tail;
+    public ListNode inode;
+    public int size;
 
 
-    public void List(){
+    public List(){
         head =null;
         tail=null;
         size=0;
+    }
+
+    public List(Object object){
+        head = new ListNode(object);
+        tail=head;
     }
 
     @Override
@@ -259,5 +264,25 @@ public class List implements ListInterface,Iterable<ListNode>{
     @Override
     public List sortList() {
         return null;
+    }
+
+    public void setHead(ListNode head) {
+        this.head = head;
+    }
+
+    public void setTail(ListNode tail) {
+        this.tail = tail;
+    }
+
+    public ListNode getInode() {
+        return inode;
+    }
+
+    public void setInode(ListNode inode) {
+        this.inode = inode;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 }

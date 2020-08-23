@@ -1,7 +1,7 @@
 package edu.upb.ds.CircularLinkedList;
 
 public class ListNode {
-    public Object object;
+    private Object object;
     public ListNode next;
 
     public ListNode() {
@@ -56,5 +56,6 @@ public class ListNode {
 
          */
     }
+
 }
 
