@@ -168,6 +168,18 @@ public class List implements ListInterface,Iterable<ListNode>{
 
     @Override
     public boolean remove(ListNode node) {
+        /*
+        ListNode aux = head;
+        for (int i = 0; i < position - 1; i++)
+        {
+            aux = aux.getNext();
+        }
+        ListNode nNext = aux.getNext();
+        aux.setNext(nNext.getNext());
+        size--;
+        return true;
+
+         */
         return false;
     }
 
@@ -187,13 +199,36 @@ public class List implements ListInterface,Iterable<ListNode>{
     }
 
     @Override
+    public ListNode rec(ListNode node) {
+        if(node.next ==null){
+            System.out.println(node.toString());
+        }
+        else{
+            System.out.println(node.toString());
+            return rec(node.next);
+        }
+        return null;
+    }
+
+    @Override
     public Object[] toArray() {
         return new Object[0];
     }
 
     @Override
     public Object[] toArray(Object[] object) {
-        return new Object[0];
+        ListNode node = head;
+        int sizeArray = object.length;
+        int x = 0;
+        object = new Object[size];
+        object[0] = head.getObject();
+
+        do {
+            node = node.next;
+            x++;
+            object[x] = node.getObject();
+        } while (x <= sizeArray);
+        return object;
     }
 
     @Override

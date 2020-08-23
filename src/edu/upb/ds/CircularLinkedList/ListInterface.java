@@ -35,6 +35,8 @@ public interface ListInterface {
 
     public boolean remove(ListNode node);
 
+    public ListNode rec(ListNode node);
+
     /*
     expansion operations
      */
