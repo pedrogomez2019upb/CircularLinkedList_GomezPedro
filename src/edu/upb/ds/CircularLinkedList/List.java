@@ -17,6 +17,7 @@ public class List implements ListInterface,Iterable<ListNode>{
 
     public List(Object object){
         head = new ListNode(object);
+        head.next=head;
         tail=head;
     }
 
@@ -27,6 +28,7 @@ public class List implements ListInterface,Iterable<ListNode>{
 
     @Override
     public int getSize() {
+
         return size;
     }
 
@@ -40,9 +42,13 @@ public class List implements ListInterface,Iterable<ListNode>{
     public Object getHead() {
         int counter=0;
         ListNode temporalNode=head;
-        while (counter<0){
+        while (counter<0)
+        {
             temporalNode=temporalNode.getNext();
         }
+        head.next=head;
+        tail = head;
+
         return temporalNode.getObject();
     }
 
@@ -84,14 +90,16 @@ public class List implements ListInterface,Iterable<ListNode>{
     public boolean add(Object object) {
         if(head==null){
             head = new ListNode(object);
+            head.next=head;
             tail = head;
         }
         else
         {
             ListNode temporalNode=head;
             ListNode newNode=new ListNode(object);
-            newNode.linkNext(temporalNode);
-            head=newNode;
+            newNode.next=head;
+            //newNode.linkNext(temporalNode);
+            tail=newNode;
         }
         size ++;
         return true;

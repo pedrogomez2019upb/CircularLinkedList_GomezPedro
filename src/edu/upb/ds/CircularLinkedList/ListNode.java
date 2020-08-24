@@ -5,22 +5,16 @@ public class ListNode {
     public ListNode next;
 
     public ListNode() {
+        this.object = object;
+        this.next = null;
     }
 
     public ListNode(Object object) {
-    }
-
-    public void ListNode() {
         this.object = object;
         this.next = null;
     }
 
-    public void ListNode(Object object) {
-        this.object = object;
-        this.next = null;
-    }
-
-    public void ListNode(Object object,ListNode next){
+    public ListNode(Object object,ListNode next){
         this.object=object;
         this.next=next;
     }
