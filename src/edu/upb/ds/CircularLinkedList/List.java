@@ -54,13 +54,8 @@ public class List implements ListInterface,Iterable<ListNode>{
 
     @Override
     public Object getTail() {
-        int counter=0;
-        ListNode temporalNode=tail;
-        while (counter<0){
-            temporalNode=temporalNode.next;
-        }
-        return temporalNode.getObject();
-
+        Object temTail = tail.getObject();
+        return temTail;
     }
 
     @Override
@@ -69,6 +64,8 @@ public class List implements ListInterface,Iterable<ListNode>{
         while (!trace.equals(node)){
             trace=trace.getNext();
         }
+        head.next=head;
+        tail = head;
         return trace;
     }
 
@@ -115,6 +112,8 @@ public class List implements ListInterface,Iterable<ListNode>{
             ListNode insert = new ListNode(object);
             insert.next=node.next;
             node.next=insert;
+            head.next=head;
+            tail = head;
             size++;
         }
         return true;
@@ -147,6 +146,7 @@ public class List implements ListInterface,Iterable<ListNode>{
                 ListNode node = new ListNode(object);
                 node.next=head;
                 head=node;
+                tail=head;
                 size++;
             }
             return true;
