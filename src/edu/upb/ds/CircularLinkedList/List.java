@@ -28,7 +28,6 @@ public class List implements ListInterface,Iterable<ListNode>{
 
     @Override
     public int getSize() {
-
         return size;
     }
 
@@ -190,6 +189,13 @@ public class List implements ListInterface,Iterable<ListNode>{
 
     @Override
     public boolean isEquals(Object object) {
+        ListNode pointer = head;
+        while (pointer.next != null) {
+            if (pointer.getObject().toString().equals(object.toString())) {
+                return true;
+            }
+            pointer = pointer.next;
+        }
         return false;
     }
 
@@ -230,7 +236,13 @@ public class List implements ListInterface,Iterable<ListNode>{
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        Object[] newArray= new Object[size];
+        ListNode temporalNode= head;
+        for (int i=0; i<size; i++){
+            newArray[i]=temporalNode;
+            temporalNode= temporalNode.next;
+        }
+        return newArray;
     }
 
     @Override
@@ -240,7 +252,6 @@ public class List implements ListInterface,Iterable<ListNode>{
         int x = 0;
         object = new Object[size];
         object[0] = head.getObject();
-
         do {
             node = node.next;
             x++;
@@ -251,7 +262,11 @@ public class List implements ListInterface,Iterable<ListNode>{
 
     @Override
     public Object getBeforeTo() {
-        return null;
+        ListNode temporalNode = head;
+        while (temporalNode.next != tail) {
+            temporalNode = temporalNode.next;
+        }
+        return temporalNode;
     }
 
     @Override
