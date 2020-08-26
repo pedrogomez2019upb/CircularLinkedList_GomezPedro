@@ -173,6 +173,20 @@ public class List implements ListInterface,Iterable<ListNode>{
 
     @Override
     public boolean set(ListNode node, Object object) {
+        if (isEmpty()) {
+            return false;
+        }
+        ListNode temporalNode = new ListNode();
+        temporalNode = head;
+        while (temporalNode != null) {
+            temporalNode = temporalNode.next;
+            if (temporalNode.equals(node)) {
+                temporalNode.setObject(object);
+                temporalNode.next=temporalNode;
+                tail=head;
+                return true;
+            }
+        }
         return false;
     }
 
@@ -276,12 +290,20 @@ public class List implements ListInterface,Iterable<ListNode>{
 
     @Override
     public Object getNextTo() {
-        return null;
+        if (isEmpty()) {
+            return null;
+        }else {
+            return head.next.getObject();
+        }
     }
 
     @Override
     public Object getNextTo(ListNode node) {
-        return null;
+        if(contains(node)){
+            return node.next;
+        }else {
+            return null;
+        }
     }
 
     @Override
