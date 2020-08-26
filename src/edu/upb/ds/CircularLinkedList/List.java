@@ -193,7 +193,24 @@ public class List implements ListInterface,Iterable<ListNode>{
     @Override
     public boolean remove(ListNode node)
     {
-        return false;
+        ListNode temporalNode=head;
+        ListNode actualNode=head;
+        if(actualNode==node){
+            head=actualNode.next;
+            tail.next=head;
+        }else {
+            while (actualNode.next != null ) {
+                if (actualNode == node){
+                    break;
+                }
+                temporalNode = actualNode;
+                actualNode = actualNode.next;
+            }
+            tail=temporalNode;
+            tail.next= actualNode.next;
+        }
+        size--;
+        return true;
     }
 
     @Override
