@@ -198,7 +198,16 @@ public class List implements ListInterface,Iterable<ListNode>{
 
     @Override
     public boolean contains(Object object) {
-        return false;
+        ListNode temporalNode = head;
+        boolean result = false;
+        while (temporalNode.next != null) {
+            temporalNode = temporalNode.next;
+            if (temporalNode == object) {
+                result = true;
+                break;
+            }
+        }
+        return result;
     }
 
     @Override
