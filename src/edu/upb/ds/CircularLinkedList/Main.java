@@ -18,18 +18,18 @@ public class Main {
         for(int i=0;i<10;i++){
             list1.add(i);
         }
-
-         */
         System.out.println(list1.getHead());
         System.out.println(list1.getTail());
+         */
 
-/*
+
+
         for(ListNode node=list1.head;node != list1.tail ;node=node.next)
         {
             System.out.println(node.toString());
         }
 
- */
+
 
 
 

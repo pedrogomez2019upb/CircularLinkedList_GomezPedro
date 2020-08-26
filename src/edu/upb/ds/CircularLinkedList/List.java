@@ -62,10 +62,8 @@ public class List implements ListInterface,Iterable<ListNode>{
     public Object get(ListNode node) {
         ListNode trace =head;
         while (!trace.equals(node)){
-            trace=trace.getNext();
+            trace=trace.next;
         }
-        head.next=head;
-        tail = head;
         return trace;
     }
 
@@ -180,19 +178,8 @@ public class List implements ListInterface,Iterable<ListNode>{
     }
 
     @Override
-    public boolean remove(ListNode node) {
-        /*
-        ListNode aux = head;
-        for (int i = 0; i < position - 1; i++)
-        {
-            aux = aux.getNext();
-        }
-        ListNode nNext = aux.getNext();
-        aux.setNext(nNext.getNext());
-        size--;
-        return true;
-
-         */
+    public boolean remove(ListNode node)
+    {
         return false;
     }
 
@@ -208,7 +195,25 @@ public class List implements ListInterface,Iterable<ListNode>{
 
     @Override
     public Iterator<ListNode> iterator() {
-        return null;
+        inode = head;
+        Iterator<ListNode> i = new Iterator<ListNode>() {
+            @Override
+            public boolean hasNext() {
+                return inode.next != null ? true : false;
+            }
+
+            @Override
+            public ListNode next() {
+                if (hasNext()) {
+                    ListNode tmp = inode;
+                    inode = inode.next;
+                    return tmp;
+                } else {
+                    return null;
+                }
+            }
+        };
+        return i;
     }
 
     @Override
